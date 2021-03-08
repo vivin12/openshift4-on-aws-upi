@@ -1,0 +1,28 @@
+ocp_vpc_id = ""
+ocp_pri_subnet_ids = [ "" ]
+ocp_pub_subnet_ids = [ "" ]
+private_vpc_cidr = "0.0.0.0/16"
+vpc_private_subnet_cidrs = ["0.0.0.0/24"]
+vpc_public_subnet_cidrs = ["0.0.0.0/24"]
+aws_region = "eu-west-1"
+aws_azs = ["a"]
+default_tags = { "owner" = "ocp42" }
+infrastructure_id = "ocp42-abcde"
+clustername = "ocp42-cp4i"
+domain = "example.com"
+create_ingress_in_public_dns = true
+create_external_loadbalancer = true
+// rhcos ami
+// https://docs.openshift.com/container-platform/4.4/installing/installing_aws/installing-aws-user-infra.html#installation-aws-user-infra-rhcos-ami_installing-aws-user-infra
+// region eu-north-1
+ami = "ami-04e659bd9575cea3d"
+bastion_ami = "ami-0b149b24810ebb323"
+bastion_ssh_key_public = "~/.ssh/id_rsa_aws_ocp.pub"
+cluster_network_cidr = "0.0.0.0/14"
+cluster_network_host_prefix = "23"
+service_network_cidr = "0.0.0.0/16"
+bootstrap = { type = "i3.xlarge" }
+control_plane = { count = "3" , type = "m5.xlarge", disk = "120" }
+worker = {        count = "3" , type = "m5.xlarge", disk = "120" }
+openshift_pull_secret = "./openshift_pull_secret.json"
+openshift_installer_url = "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest-4.4"
